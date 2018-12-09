@@ -4,7 +4,7 @@ import (
 	"flag"
 	"log"
 	"net/http"
-
+	"os"
 	"github.com/eye1994/game-server/ws"
 )
 
@@ -14,5 +14,5 @@ func main() {
 	flag.Parse()
 	log.SetFlags(0)
 	http.HandleFunc("/ws", ws.HandleWsConnection)
-	log.Fatal(http.ListenAndServe(*addr, nil))
+	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
