@@ -13,6 +13,8 @@ const (
 	DataEvent = "data"
 	// JoinedEvent is the event for emiting a join event type
 	JoinedEvent = "joined"
+	// CreatedEvent
+	CreatedEvent = "created"
 )
 
 // RegisterUser with()

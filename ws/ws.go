@@ -7,7 +7,11 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var upgrader = websocket.Upgrader{}
+var upgrader = websocket.Upgrader{
+	CheckOrigin: func(r *http.Request) bool {
+		return true
+	},
+}
 
 func onCreateEvent(conn *websocket.Conn, msg SocketEvent) {
 	room, err := createRoom()
@@ -17,7 +21,7 @@ func onCreateEvent(conn *websocket.Conn, msg SocketEvent) {
 	}
 
 	client := &Client{conn: conn, room: room}
-	client.send(SocketEvent{EventType: CreateEvent, Room: room.name})
+	client.send(SocketEvent{EventType: CreatedEvent, Room: room.name})
 	room.addClient(client, msg.PlayerName)
 	handleGameData(client)
 }
@@ -56,6 +60,8 @@ func HandleWsConnection(w http.ResponseWriter, r *http.Request) {
 		log.Print("upgrade:", err)
 		return
 	}
+
+	log.Print("New connection\n")
 
 loop:
 	for {
