@@ -1,0 +1,17 @@
+{
+	"ImportPath": "github.com/eye1994/game-server",
+	"GoVersion": "go1.11",
+	"GodepVersion": "v80",
+	"Deps": [
+		{
+			"ImportPath": "github.com/google/uuid",
+			"Comment": "v1.1.0",
+			"Rev": "9b3b1e0f5f99ae461456d768e7d301a7acdaa2d8"
+		},
+		{
+			"ImportPath": "github.com/gorilla/websocket",
+			"Comment": "v1.4.0-5-g483fb8d",
+			"Rev": "483fb8d7c32fcb4b5636cd293a92e3935932e2f4"
+		}
+	]
+}
