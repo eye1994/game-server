@@ -1,6 +1,6 @@
 {
 	"ImportPath": "github.com/eye1994/game-server",
-	"GoVersion": "go1.9",
+	"GoVersion": "go1.12.3",
 	"GodepVersion": "v80",
 	"Deps": [
 		{
